@@ -256,16 +256,27 @@
     function scrollToSection(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
 
     const products=[
-      {name:'AI Chatbot',nprAmount:5000,desc:'Interact with our smart AI chatbot for instant solutions and learning.',img:'https://images.unsplash.com/photo-1581091215363-76b1c6fcb3c2?auto=format&fit=crop&w=800&q=80',download:'#'},
-      {name:'Music AI',nprAmount:7500,desc:'Create and edit music effortlessly with our AI-powered tools.',img:'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80',download:'#'},
-      {name:'Global Learning',nprAmount:10000,desc:'Learn new skills and languages with personalized global courses.',img:'https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=800&q=80',download:'#'},
-      {name:'AI Video Editor',nprAmount:8500,desc:'Edit and enhance videos with AI-powered tools easily.',img:'https://images.unsplash.com/photo-1612832021036-1a8ab5e23a13?auto=format&fit=crop&w=800&q=80',download:'#'},
-      {name:'Language AI Tutor',nprAmount:6000,desc:'Learn new languages with AI-powered personalized lessons.',img:'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80',download:'#'},
-      {name:'Gaming Laptop',nprAmount:120000,desc:'Best laptop for gaming with good quality performance and smoothness for Free Fire and PUBG.',img:'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80',download:'#'},
-      {name:'alexa voice assistant',nprAmount:20000,desc:'alexa our personal assistant for our daily life',img:'https://images.unsplash.com/photo-1568910748155-01ca989dbdd6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWxleGF8ZW58MHx8MHx8fDA%3D&fm=jpg&q=60&w=3000',download:'#'},
-      {name:'iphone 17 pro max',nprAmount:240000,desc:'iphone has the best quality of camera and lagecy in the world',img:'https://www.apple.com/v/iphone-17-pro/c/images/overview/highlights/highlights_design_endframe__flnga0hibmeu_large.jpg',download:'#'},
-      {name:'samsumng S25 ultra',nprAmount:290000,desc:'samsung is emerging phone in the world with high performance and gaming',img:'https://bigbyte.com.np/wp-content/uploads/2025/01/Samsung-Galaxy-S25-Ultra-2025-best-deal-at-bigbye-it-world-scaled.jpg',download:'#'}
-    ];
+  {name:'AI Chatbot', nprAmount:5000, desc:'Interact with our smart AI chatbot for instant solutions and learning.', img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS65xrzRYdo8Id9Sr-Qy4gbiI0-yUusnCc4Bw&s', download:'#'},
+  {name:'Music AI', nprAmount:7500, desc:'Create and edit music effortlessly with our AI-powered tools.', img:'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80', download:'#'},
+  {name:'Global Learning', nprAmount:10000, desc:'Learn new skills and languages with personalized global courses.', img:'https://seofiles.s3.amazonaws.com/seo/media/uploads/2018/03/05/global-learning-service_0-1.jpg', download:'#'},
+  {name:'AI Video Editor', nprAmount:8500, desc:'Edit and enhance videos with AI-powered tools easily.', img:'https://cdn-images-1.medium.com/max/1600/0*wth1MFTx8Ce9kghq', download:'#'},
+  {name:'Language AI Tutor', nprAmount:6000, desc:'Learn new languages with AI-powered personalized lessons.', img:'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80', download:'#'},
+  {name:'Gaming Laptop', nprAmount:120000, desc:'Best laptop for gaming with good quality performance and smoothness for Free Fire and PUBG.', img:'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80', download:'#'},
+  {name:'Alexa Voice Assistant', nprAmount:20000, desc:'Alexa, our personal assistant for our daily life.', img:'https://images.unsplash.com/photo-1568910748155-01ca989dbdd6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWxleGF8ZW58MHx8MHx8fDA%3D&fm=jpg&q=60&w=3000', download:'#'},
+  {name:'iPhone 17 Pro Max', nprAmount:240000, desc:'iPhone has the best quality of camera and legacy in the world.', img:'https://www.apple.com/v/iphone-17-pro/c/images/overview/highlights/highlights_design_endframe__flnga0hibmeu_large.jpg', download:'#'},
+  {name:'Samsung S25 Ultra', nprAmount:290000, desc:'Samsung is emerging phone in the world with high performance and gaming.', img:'https://bigbyte.com.np/wp-content/uploads/2025/01/Samsung-Galaxy-S25-Ultra-2025-best-deal-at-bigbye-it-world-scaled.jpg', download:'#'},
+  {name:'Smart Robot Assistant', nprAmount:30000, desc:'Smart robot assistants are used for daily life.', img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfLHjgXWoafi57iDRHQ8-FqWoD9ab73-mzYA&s', download:'#'},
+  {name:'VR Headset', nprAmount:45000, desc:'Experience immersive virtual reality games and apps.', img:'https://i.pcmag.com/imagery/reviews/063ep8ylYBmRGSXkZ0i0Qer-1.fit_lim.size_919x518.v1728608548.jpg', download:'#'},
+  {name:'Smartwatch Pro', nprAmount:15000, desc:'Track your fitness, health, and notifications with style.', img:'https://img.drz.lazcdn.com/static/np/p/2a2b76109dad20976b605e775d306392.jpg_720x720q80.jpg', download:'#'},
+  {name:'Portable Drone', nprAmount:55000, desc:'Capture amazing aerial footage with this easy-to-fly drone.', img:'https://qualitycomputer.com.np/web/image/product.template/49346/image_1024?unique=88ea54f', download:'#'},
+  {name:'Wireless Earbuds', nprAmount:8000, desc:'High-quality sound and noise cancellation on the go.', img:'https://qualitycomputer.com.np/web/image/product.template/51561/image_1024?unique=9fceb91', download:'#'},
+  {name:'Gaming Keyboard', nprAmount:7000, desc:'RGB backlit mechanical keyboard for gaming and productivity.', img:'https://cdn.mos.cms.futurecdn.net/XMDNCcbVWnrYj3zdapKrGb-2000-80.jpg', download:'#'},
+  {name:'Smart Home Hub', nprAmount:25000, desc:'Control your smart devices and automation easily.', img:'https://www.dusuniot.com/wp-content/uploads/2023/07/smart-home-hub.jpg', download:'#'},
+  {name:'Electric Scooter', nprAmount:90000, desc:'Eco-friendly and fun commuting solution.', img:'https://english.onlinekhabar.com/wp-content/uploads/2023/10/image-5-3.jpg', download:'#'},
+  {name:'4K Action Camera', nprAmount:20000, desc:'Record high-quality adventures in stunning 4K resolution.', img:'https://static-01.daraz.com.np/p/254fb994705f30391f90a98e4c326f1c.jpg', download:'#'},
+  {name:'Smart Light Bulb', nprAmount:1500, desc:'Control your lighting with your phone or voice assistant.', img:'https://img.drz.lazcdn.com/static/np/p/5065c1f87fe7f42a2784cdd37b5e634a.jpg_720x720q80.jpg_.webp', download:'#'},
+  {name:'Fitness Tracker', nprAmount:3500, desc:'Monitor your activity, heart rate, and sleep patterns.', img:'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80', download:'#'}
+];
 
     const cardsContainer=document.querySelector('#products .cards');
     let currentProduct=null;
@@ -352,6 +363,7 @@
   </script>
 </body>
 </html>
+
 
 
 
