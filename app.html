@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Innovators 🌍 — Advanced</title>
+  <meta name="description" content="Global Innovators — AI chatbots, Music AI, Global Learning. Secure Khalti integration, multilingual, dark mode, contact form." />
+  <style>
+    :root{
+      --bg: #f5f5f5;
+      --card: #ffffff;
+      --text: #222;
+      --primary: #0077cc;
+      --accent: #ff6600;
+      --success: #28a745;
+      --glass: rgba(255,255,255,0.6);
+    }
+    [data-theme="dark"]{
+      --bg: #0b0f14;
+      --card: #0f1720;
+      --text: #e6eef6;
+      --primary: #3aa0ff;
+      --accent: #ff8a4a;
+      --success: #3bd17a;
+      --glass: rgba(255,255,255,0.03);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.5;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      transition:background .25s ease, color .25s ease;
+    }
+
+    header{position:sticky;top:0;background:linear-gradient(90deg,var(--primary),#005fa3);color:white;padding:12px 20px;display:flex;align-items:center;gap:12px;z-index:60}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:44px;height:44px;border-radius:8px;background:var(--card);display:flex;align-items:center;justify-content:center;color:var(--primary);font-weight:700}
+    nav{margin-left:auto;display:flex;gap:12px;align-items:center}
+    nav a{color:inherit;padding:8px 10px;border-radius:6px;font-weight:600}
+    nav a:hover{background:rgba(255,255,255,0.08)}
+    .controls{display:flex;gap:8px;align-items:center}
+    button.icon{background:transparent;border:1px solid rgba(255,255,255,0.12);color:white;padding:8px 10px;border-radius:8px;cursor:pointer}
+
+    .hero{min-height:66vh;display:flex;align-items:center;padding:60px 20px;background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=80');background-size:cover;background-position:center;color:white;position:relative}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.35));}
+    .hero-inner{position:relative;z-index:2;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 360px;gap:30px;align-items:center}
+    .hero h1{font-size:clamp(1.6rem,3.8vw,2.8rem);margin-bottom:12px}
+    .hero p{opacity:0.95;margin-bottom:18px}
+    .cta-row{display:flex;gap:12px}
+    .btn-primary{background:var(--accent);color:white;padding:12px 18px;border-radius:10px;border:none;cursor:pointer;font-weight:700}
+    .btn-outline{background:transparent;border:2px solid rgba(255,255,255,0.18);color:white;padding:10px 16px;border-radius:10px;cursor:pointer}
+
+    .stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px}
+    .stat{background:var(--glass);backdrop-filter:blur(6px);padding:12px 14px;border-radius:10px;text-align:center;min-width:120px}
+    .stat strong{display:block;font-size:1.4rem}
+
+    main{max-width:1200px;margin:-40px auto 40px;padding:20px}
+    section{margin-bottom:40px;padding:20px}
+    .section-title{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+    .section-title h2{color:var(--primary)}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+    .card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.08);transition:transform .25s ease, box-shadow .25s ease}
+    .card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(2,6,23,0.12)}
+    .card img{width:100%;height:160px;object-fit:cover;border-radius:10px;margin-bottom:10px}
+    .card h3{margin-bottom:6px;color:var(--primary)}
+    .price{font-weight:800;margin-bottom:8px}
+
+    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;z-index:120}
+    .modal{background:var(--card);width:100%;max-width:520px;padding:16px;border-radius:12px}
+    .modal header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+
+    .team{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+    .member{background:var(--card);padding:12px;border-radius:10px;text-align:center}
+    .member img{width:88px;height:88px;border-radius:50%;object-fit:cover;margin-bottom:8px}
+
+    form.contact{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    form.contact input, form.contact textarea{padding:10px;border-radius:8px;border:1px solid #cbd5e1;background:transparent;color:var(--text)}
+    form.contact textarea{grid-column:1/-1;min-height:120px}
+
+    footer{padding:20px;text-align:center;color:rgba(255,255,255,0.9);background:linear-gradient(90deg,#111,#001);border-top:1px solid rgba(255,255,255,0.03);}
+
+    @media (max-width:900px){
+      .hero-inner{grid-template-columns:1fr}
+      nav{display:none}
+      header{padding:10px}
+      .hero{padding:40px 12px}
+    }
+
+    .reveal{opacity:0;transform:translateY(14px);transition:all .7s cubic-bezier(.2,.9,.3,1)}
+    .reveal.visible{opacity:1;transform:none}
+    .small{font-size:.9rem;opacity:.85}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">GI</div>
+      <div>
+        <div class="translatable" data-en="Global Innovators 🌍" data-es="Innovadores Globales 🌍">Global Innovators 🌍</div>
+        <div class="small">Connecting the world with innovation</div>
+      </div>
+    </div>
+
+    <nav aria-label="Main navigation">
+      <a href="#home" class="translatable" data-en="Home" data-es="Inicio">Home</a>
+      <a href="#about" class="translatable" data-en="About" data-es="Acerca de">About</a>
+      <a href="#products" class="translatable" data-en="Products" data-es="Productos">Products</a>
+      <a href="#contact" class="translatable" data-en="Contact" data-es="Contacto">Contact</a>
+    </nav>
+
+    <div class="controls">
+      <button class="icon" id="langBtn" title="Toggle language">ES</button>
+      <button class="icon" id="themeBtn" title="Toggle theme">🌓</button>
+      <button class="icon" id="menuBtn" title="Open menu" style="display:none">☰</button>
+    </div>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="hero-inner">
+      <div>
+        <h1 class="translatable" data-en="Connecting the World with Innovation" data-es="Conectando el Mundo con Innovación">Connecting the World with Innovation</h1>
+        <p class="translatable" data-en="We provide cutting-edge solutions for individuals and businesses globally." data-es="Proporcionamos soluciones innovadoras para personas y empresas en todo el mundo.">We provide cutting-edge solutions for individuals and businesses globally.</p>
+        <div class="cta-row">
+          <button class="btn-primary" onclick="scrollToSection('products')" data-en="Explore Products" data-es="Explorar Productos">Explore Products</button>
+          <button class="btn-outline" onclick="scrollToSection('contact')" data-en="Contact Us" data-es="Contáctanos">Contact Us</button>
+        </div>
+
+        <div class="stats" aria-hidden="true">
+          <div class="stat">
+            <small class="small translatable" data-en="Users" data-es="Usuarios">Users</small>
+            <strong class="counter" data-target="12500">0</strong>
+          </div>
+          <div class="stat">
+            <small class="small translatable" data-en="Projects" data-es="Proyectos">Projects</small>
+            <strong class="counter" data-target="420">0</strong>
+          </div>
+          <div class="stat">
+            <small class="small translatable" data-en="Partners" data-es="Socios">Partners</small>
+            <strong class="counter" data-target="85">0</strong>
+          </div>
+        </div>
+      </div>
+
+      <aside style="background:var(--card);padding:16px;border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.08)">
+        <h3 class="translatable" data-en="Get Started" data-es="Comenzar">Get Started</h3>
+        <p class="small translatable" data-en="Choose a product and try our demo." data-es="Elige un producto y prueba nuestra demo.">Choose a product and try our demo.</p>
+      </aside>
+    </div>
+  </section>
+
+  <main>
+    <section id="products">
+      <div class="section-title">
+        <h2 class="translatable" data-en="Our Products" data-es="Nuestros Productos">Our Products</h2>
+        <div class="small translatable" data-en="Prices in NPR (amount shown in paisa for Khalti)." data-es="Precios en NPR (monto mostrado en paisa para Khalti).">Prices in NPR (amount shown in paisa for Khalti).</div>
+      </div>
+
+      <div class="cards"></div>
+    </section>
+
+    <section id="about">
+      <div class="section-title">
+        <h2 class="translatable" data-en="About Us" data-es="Acerca de Nosotros">About Us</h2>
+        <div class="small translatable" data-en="Our mission is to connect people and empower innovation globally." data-es="Nuestra misión es conectar a las personas y potenciar la innovación a nivel global.">Our mission is to connect people and empower innovation globally.</div>
+      </div>
+
+      <div class="team reveal">
+        <div class="member">
+          <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Kabir">
+          <h4 class="translatable" data-en="Kabir Mahato" data-es="Kabir Mahato">Kabir Mahato</h4>
+          <div class="small translatable" data-en="Founder & CEO" data-es="Fundador y CEO">Founder & CEO</div>
+        </div>
+        <div class="member">
+          <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Laxmi">
+          <h4 class="translatable" data-en="Laxmi Mahato" data-es="Laxmi Mahato">Laxmi Mahato</h4>
+          <div class="small translatable" data-en="Head of Design" data-es="Jefa de Diseño">Head of Design</div>
+        </div>
+        <div class="member">
+          <img src="https://randomuser.me/api/portraits/men/80.jpg" alt="Rohan">
+          <h4 class="translatable" data-en="Rohan Sharma" data-es="Rohan Sharma">Rohan Sharma</h4>
+          <div class="small translatable" data-en="Lead Developer" data-es="Desarrollador Principal">Lead Developer</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title">
+        <h2 class="translatable" data-en="Contact Us" data-es="Contáctanos">Contact Us</h2>
+        <div class="small translatable" data-en="Send a message or request demo access." data-es="Envía un mensaje o solicita acceso de demostración.">Send a message or request demo access.</div>
+      </div>
+
+      <form id="contactForm" class="contact reveal" onsubmit="handleContact(event)">
+        <input type="text" id="name" placeholder="Name" class="translatable" data-en="Name" data-es="Nombre" required>
+        <input type="email" id="email" placeholder="Email" class="translatable" data-en="Email" data-es="Correo Electrónico" required>
+        <input type="text" id="subject" placeholder="Subject" class="translatable" data-en="Subject" data-es="Asunto" required>
+        <input type="tel" id="phone" placeholder="Phone (optional)" class="translatable" data-en="Phone (optional)" data-es="Teléfono (opcional)">
+        <textarea id="message" placeholder="Message" class="translatable" data-en="Message" data-es="Mensaje" required></textarea>
+        <button type="submit" class="btn-primary">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="small">&copy; 2025 Global Innovators. All rights reserved. | <a href="#">Privacy Policy</a></div>
+  </footer>
+
+  <div id="modalBackdrop" class="modal-backdrop" role="dialog" aria-hidden="true">
+    <div class="modal" role="document">
+      <header>
+        <h3 id="modalTitle">Product</h3>
+        <div style="display:flex;gap:8px;align-items:center">
+          <button class="btn-outline" onclick="closeModal()">Close</button>
+        </div>
+      </header>
+      <div style="display:grid;grid-template-columns:120px 1fr;gap:12px;align-items:start">
+        <img id="modalImg" src="" alt="product" style="width:100%;border-radius:8px;object-fit:cover">
+        <div>
+          <p id="modalDesc" class="small"></p>
+          <div style="margin-top:10px">
+            <div class="price" id="modalPrice">NPR 0</div>
+            <div style="display:flex;gap:8px;margin-top:8px">
+              <button class="btn-primary" id="modalPayBtn">Pay with Khalti</button>
+              <button class="btn-outline" onclick="copyLink()">Copy Link</button>
+            </div>
+            <div id="modalNote" class="small" style="margin-top:8px;color:var(--primary)"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://khalti.com/static/khalti-checkout.js"></script>
+  <script>
+    const KHALTI_PUBLIC_KEY = 'test_public_key_dc74c3f6e9b14f6e8e48f1a3f1234567';
+
+    const themeBtn = document.getElementById('themeBtn');
+    const langBtn = document.getElementById('langBtn');
+
+    function setTheme(theme){ document.documentElement.setAttribute('data-theme', theme); localStorage.setItem('gi_theme', theme);}
+    function toggleTheme(){ const current = document.documentElement.getAttribute('data-theme') || 'light'; setTheme(current==='light'?'dark':'light');}
+    function setLang(lang){ localStorage.setItem('gi_lang', lang); document.querySelectorAll('.translatable').forEach(el=>{const text=el.dataset[lang]; if(text) el.textContent=text;}); langBtn.textContent=lang==='en'?'ES':'EN';}
+    function toggleLang(){ const cur=localStorage.getItem('gi_lang')||'en'; setLang(cur==='en'?'es':'en');}
+    (function initSettings(){ setTheme(localStorage.getItem('gi_theme')||'light'); setLang(localStorage.getItem('gi_lang')||'en');})();
+    themeBtn.addEventListener('click',toggleTheme);
+    langBtn.addEventListener('click',toggleLang);
+
+    const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible'); if(entry.target.querySelectorAll){entry.target.querySelectorAll('.counter').forEach(ctr=>animateCounter(ctr));}}});},{threshold:0.15});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+    function animateCounter(el){if(el.dataset.animated)return; const target=+el.dataset.target; let count=0; const step=Math.ceil(target/100); const interval=setInterval(()=>{count+=step;if(count>=target){count=target; clearInterval(interval);} el.textContent=count.toLocaleString();},20); el.dataset.animated=true;}
+
+    function scrollToSection(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
+
+    const products=[
+      {name:'AI Chatbot',nprAmount:5000,desc:'Interact with our smart AI chatbot for instant solutions and learning.',img:'https://images.unsplash.com/photo-1581091215363-76b1c6fcb3c2?auto=format&fit=crop&w=800&q=80',download:'#'},
+      {name:'Music AI',nprAmount:7500,desc:'Create and edit music effortlessly with our AI-powered tools.',img:'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80',download:'#'},
+      {name:'Global Learning',nprAmount:10000,desc:'Learn new skills and languages with personalized global courses.',img:'https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=800&q=80',download:'#'},
+      {name:'AI Video Editor',nprAmount:8500,desc:'Edit and enhance videos with AI-powered tools easily.',img:'https://images.unsplash.com/photo-1612832021036-1a8ab5e23a13?auto=format&fit=crop&w=800&q=80',download:'#'},
+      {name:'Language AI Tutor',nprAmount:6000,desc:'Learn new languages with AI-powered personalized lessons.',img:'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80',download:'#'},
+      {name:'Gaming Laptop',nprAmount:120000,desc:'Best laptop for gaming with good quality performance and smoothness for Free Fire and PUBG.',img:'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80',download:'#'},
+      {name:'alexa voice assistant',nprAmount:20000,desc:'alexa our personal assistant for our daily life',img:'https://images.unsplash.com/photo-1568910748155-01ca989dbdd6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWxleGF8ZW58MHx8MHx8fDA%3D&fm=jpg&q=60&w=3000',download:'#'},
+      {name:'iphone 17 pro max',nprAmount:240000,desc:'iphone has the best quality of camera and lagecy in the world',img:'https://www.apple.com/v/iphone-17-pro/c/images/overview/highlights/highlights_design_endframe__flnga0hibmeu_large.jpg',download:'#'},
+      {name:'samsumng S25 ultra',nprAmount:290000,desc:'samsung is emerging phone in the world with high performance and gaming',img:'https://bigbyte.com.np/wp-content/uploads/2025/01/Samsung-Galaxy-S25-Ultra-2025-best-deal-at-bigbye-it-world-scaled.jpg',download:'#'}
+    ];
+
+    const cardsContainer=document.querySelector('#products .cards');
+    let currentProduct=null;
+    products.forEach(prod=>{
+      const card=document.createElement('article'); card.className='card reveal';
+      card.innerHTML=`
+        <img src="${prod.img}" alt="${prod.name}">
+        <h3>${prod.name}</h3>
+        <div class="price">NPR ${prod.nprAmount.toLocaleString()}</div>
+        <p class="small">${prod.desc}</p>
+        <div style="display:flex;gap:8px;margin-top:12px">
+          <button class="btn-primary" onclick="openProductModal('${prod.name}',${prod.nprAmount},'${prod.desc}','${prod.img}','${prod.download}')">Buy Now</button>
+          <button class="btn-outline" onclick="previewFeature('${prod.name}')">Preview</button>
+        </div>
+      `;
+      cardsContainer.appendChild(card);
+      observer.observe(card);
+    });
+
+    const modalBackdrop=document.getElementById('modalBackdrop');
+    const modalTitle=document.getElementById('modalTitle');
+    const modalDesc=document.getElementById('modalDesc');
+    const modalImg=document.getElementById('modalImg');
+    const modalPrice=document.getElementById('modalPrice');
+    const modalPayBtn=document.getElementById('modalPayBtn');
+
+    function openProductModal(name,nprAmount,desc,img,download='#'){
+      currentProduct={name,nprAmount,desc,img,download};
+      modalTitle.textContent=name;
+      modalDesc.textContent=desc;
+      modalImg.src=img;
+      modalPrice.textContent=`NPR ${Number(nprAmount).toLocaleString()}`;
+      modalPayBtn.style.display='inline-block';
+      document.getElementById('modalNote').textContent = '';
+      modalBackdrop.style.display='flex';
+      modalBackdrop.setAttribute('aria-hidden','false');
+    }
+
+    function previewFeature(name) {
+      const prod = products.find(p => p.name === name);
+      if (!prod) return;
+      currentProduct = prod;
+      modalTitle.textContent = prod.name;
+      modalDesc.textContent = prod.desc;
+      modalImg.src = prod.img;
+      modalPrice.textContent = `NPR ${Number(prod.nprAmount).toLocaleString()}`;
+      modalPayBtn.style.display = 'none';
+      document.getElementById('modalNote').textContent = "Preview mode — Payment disabled";
+      modalBackdrop.style.display = 'flex';
+      modalBackdrop.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeModal() {
+      modalBackdrop.style.display='none';
+      modalBackdrop.setAttribute('aria-hidden','true');
+      modalPayBtn.style.display = 'inline-block';
+      document.getElementById('modalNote').textContent = '';
+    }
+
+    function copyLink(){navigator.clipboard.writeText(currentProduct.download||window.location.href).then(()=>alert('Link copied!'));}
+
+    modalPayBtn.addEventListener('click',()=>{
+      if(!currentProduct)return;
+      let checkout=new KhaltiCheckout({
+        publicKey: KHALTI_PUBLIC_KEY,
+        productIdentity: currentProduct.name,
+        productName: currentProduct.name,
+        productUrl: window.location.href,
+        eventHandler:{
+          onSuccess(payload){
+            alert('Payment successful!');
+            if(currentProduct.download && currentProduct.download!=='#') window.location.href=currentProduct.download;
+            closeModal();
+          },
+          onError(error){console.error(error); alert('Payment failed!');},
+          onClose(){console.log('Checkout closed');}
+        },
+        paymentPreference:['KHALTI']
+      });
+      checkout.show({amount:currentProduct.nprAmount*100});
+    });
+
+    function handleContact(e){e.preventDefault();alert('Thank you! Message sent.');e.target.reset();}
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
